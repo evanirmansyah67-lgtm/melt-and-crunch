@@ -1,0 +1,261 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melt & Crunch</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'DM Sans', sans-serif;
+            background: #fcf8f3;
+            color: #3f2b23;
+        }
+
+        header {
+            text-align: center;
+            padding: 55px 20px 45px;
+            background: #f1e4d7;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            margin: 12px 0 0;
+            color: #806657;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 22px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .intro p {
+            color: #88766b;
+            font-size: 14px;
+        }
+
+        .produk-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .kartu {
+            background: #fff;
+            border: 1px solid #eee4da;
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 5px 18px rgba(80, 51, 34, 0.04);
+        }
+
+        .gambar {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-radius: 11px;
+            background: #f6ede4;
+}
+        
+
+        .kartu h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 23px;
+            margin: 20px 0 8px;
+        }
+
+        .deskripsi {
+            color: #8a786c;
+            font-size: 13px;
+            line-height: 1.7;
+            min-height: 44px;
+        }
+
+        .harga {
+            font-size: 21px;
+            font-weight: 700;
+            color: #87583e;
+            margin: 18px 0;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            margin-top: 7px;
+            border: 1px solid #e4d7cc;
+            border-radius: 8px;
+            background: #fffdfb;
+            font: inherit;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 13px;
+            border: none;
+            border-radius: 9px;
+            background: #684735;
+            color: white;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #4e3528;
+        }
+
+        footer {
+            text-align: center;
+            color: #978579;
+            font-size: 12px;
+            padding: 25px 15px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 40px 15px;
+            }
+
+            header h1 {
+                font-size: 34px;
+            }
+
+            .produk-list {
+                grid-template-columns: 1fr;
+            }
+
+            .gambar {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Melt & Crunch</h1>
+        <p>Creamy, crunchy & perfectly sweet</p>
+    </header>
+
+    <main class="container">
+        <div class="intro">
+            <h2>Our Dessert</h2>
+            <p>Pilihan manis untuk menemani harimu.</p>
+        </div>
+
+        <div class="produk-list">
+            <div class="kartu">
+                <img class="gambar"
+                    src="{{ url_for('static', filename='Tiramisu.jpeg') }}"
+                    alt="Tiramisu">
+
+                <h3>Tiramisu</h3>
+                <p class="deskripsi">
+                    Tiramisu lembut dengan rasa klasik yang creamy.
+                </p>
+                <p class="harga">Rp12.000</p>
+
+                <label for="jumlah-Tiramisu">Jumlah pesanan</label>
+                <input type="number" id="jumlah-Tiramisu"
+                       value="1" min="1" step="1">
+
+                <button onclick="pesanSekarang('Tiramisu', 'jumlah-Tiramisu')">
+                    Pesan Tiramisu
+                </button>
+            </div>
+
+            <div class="kartu">
+                <div class="gambar">🍫</div>
+                <h3>Cokelat</h3>
+                <p class="deskripsi">
+                    Tiramisu lembut dengan perpaduan rasa cokelat.
+                </p>
+                <p class="harga">Rp12.000</p>
+
+                <label for="jumlah-cokelat">Jumlah pesanan</label>
+                <input type="number" id="jumlah-cokelat"
+                       value="1" min="1" step="1">
+
+                <button onclick="pesanSekarang('Cokelat', 'jumlah-cokelat')">
+                    Pesan Cokelat
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 Melt & Crunch · Made with love ♡
+    </footer>
+
+    <script>
+        function pesanSekarang(rasa, idJumlah) {
+            const jumlahInput = document.getElementById(idJumlah);
+            const jumlah = Number(jumlahInput.value);
+
+            if (!Number.isInteger(jumlah) || jumlah < 1) {
+                alert("Masukkan jumlah pesanan minimal 1.");
+                jumlahInput.focus();
+                return;
+            }
+
+            const harga = 12000;
+            const total = harga * jumlah;
+
+            const pesan =
+                "Halo Melt & Crunch, saya ingin memesan:\n" +
+                "Produk: Dessert \n" +
+                "Rasa: " + rasa + "\n" +
+                "Jumlah: " + jumlah + "\n" +
+                "Harga satuan: Rp12.000\n" +
+                "Total: Rp" + total.toLocaleString("id-ID");
+
+            const nomorWA = "6285776004384";
+
+            window.open(
+                "https://wa.me/" + nomorWA +
+                "?text=" + encodeURIComponent(pesan),
+                "_blank"
+            );
+        }
+    </script>
+</body>
+</html>
+```
